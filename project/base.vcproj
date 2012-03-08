@@ -940,10 +940,6 @@
 					>
 				</File>
 				<File
-					RelativePath="..\base\memory\raw_scoped_refptr_mismatch_checker.h"
-					>
-				</File>
-				<File
 					RelativePath="..\base\memory\ref_counted.cc"
 					>
 				</File>
@@ -972,10 +968,6 @@
 					>
 				</File>
 				<File
-					RelativePath="..\base\memory\scoped_nsobject.h"
-					>
-				</File>
-				<File
 					RelativePath="..\base\memory\scoped_open_process.h"
 					>
 				</File>
@@ -993,10 +985,6 @@
 				</File>
 				<File
 					RelativePath="..\base\memory\singleton.h"
-					>
-				</File>
-				<File
-					RelativePath="..\base\memory\singleton_objc.h"
 					>
 				</File>
 				<File
@@ -1157,18 +1145,6 @@
 				</File>
 				<File
 					RelativePath="..\base\threading\watchdog.h"
-					>
-				</File>
-				<File
-					RelativePath="..\base\threading\worker_pool.cc"
-					>
-				</File>
-				<File
-					RelativePath="..\base\threading\worker_pool.h"
-					>
-				</File>
-				<File
-					RelativePath="..\base\threading\worker_pool_win.cc"
 					>
 				</File>
 			</Filter>
