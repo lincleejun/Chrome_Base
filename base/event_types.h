@@ -22,16 +22,8 @@ typedef union _XEvent XEvent;
 
 namespace base {
 
-// Cross platform typedefs for native event types.
-#if defined(OS_WIN)
 typedef MSG NativeEvent;
-#elif defined(USE_WAYLAND)
-typedef wayland::WaylandEvent* NativeEvent;
-#elif defined(USE_X11)
-typedef XEvent* NativeEvent;
-#else
-typedef void* NativeEvent;
-#endif
+
 
 } // namespace base
 

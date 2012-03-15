@@ -100,13 +100,13 @@
 // method in the parent class.
 // Use like:
 //   virtual void foo() OVERRIDE;
-#if defined(COMPILER_MSVC)
-#define OVERRIDE override
-#elif defined(__clang__)
-#define OVERRIDE override
-#else
+// #if defined(COMPILER_MSVC)
+// #define OVERRIDE override
+// #elif defined(__clang__)
+// #define OVERRIDE override
+// #else
 #define OVERRIDE
-#endif
+//#endif
 
 // Annotate a function indicating the caller must examine the return value.
 // Use like:

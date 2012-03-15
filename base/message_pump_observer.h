@@ -12,9 +12,6 @@ namespace base {
 
 enum EventStatus {
   EVENT_CONTINUE,    // The event should be dispatched as normal.
-#if defined(USE_X11)
-  EVENT_HANDLED      // The event should not be processed any farther.
-#endif
 };
 
 // A MessagePumpObserver is an object that receives global

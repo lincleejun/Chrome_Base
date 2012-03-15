@@ -20,8 +20,9 @@
 			Name="Debug|Win32"
 			OutputDirectory="../bin/"
 			IntermediateDirectory="../building"
-			ConfigurationType="2"
+			ConfigurationType="4"
 			CharacterSet="1"
+			EnableManagedIncrementalBuild="0"
 			>
 			<Tool
 				Name="VCPreBuildEventTool"
@@ -40,14 +41,15 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
+				AdditionalOptions="/MP"
 				Optimization="0"
 				AdditionalIncludeDirectories="../;./;&quot;$(VSInstallDir)\VC\atlmfc\include&quot;"
-				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;_USRDLL;COMPONENT_BUILD;BASE_IMPLEMENTATION;_WINDLL;BASE_EXPORT;_WIN32_WINNT=0x0600;WINVER=0x0600;NOMINMAX;_CRT_RAND_S;CERT_CHAIN_PARA_HAS_EXTRA_FIELDS;WIN32_LEAN_AND_MEAN;_ATL_NO_OPENGL;_HAS_TR1=0;__STD_C;_CRT_SECURE_NO_DEPRECATE;_SCL_SECURE_NO_DEPRECATE;_HAS_EXCEPTIONS=0;_STATIC_CPPLIB;_DISABLE_DEPRECATE_STATIC_CPPLIB;_SECURE_ATL;BASE_I18N_IMPLEMENTATION;DYNAMIC_ANNOTATIONS_ENABLED=1;WTF_USE_DYNAMIC_ANNOTATIONS=1"
+				PreprocessorDefinitions="_DEBUG;&quot;_WIN32_WINNT=0x0600&quot;;&quot;WINVER=0x0600&quot;;&quot;WIN32&quot;;&quot;_WINDOWS&quot;;&quot;NOMINMAX&quot;;&quot;_CRT_RAND_S&quot;;&quot;CERT_CHAIN_PARA_HAS_EXTRA_FIELDS&quot;;&quot;WIN32_LEAN_AND_MEAN&quot;;&quot;_ATL_NO_OPENGL&quot;;&quot;_HAS_TR1=0&quot;;&quot;__STD_C&quot;;&quot;_CRT_SECURE_NO_DEPRECATE&quot;;&quot;_SCL_SECURE_NO_DEPRECATE&quot;;&quot;_HAS_EXCEPTIONS=0&quot;;&quot;_STATIC_CPPLIB&quot;;&quot;_DISABLE_DEPRECATE_STATIC_CPPLIB&quot;;&quot;_SECURE_ATL&quot;;BASE_IMPLEMENTATION;&quot;BASE_I18N_IMPLEMENTATION&quot;;&quot;DYNAMIC_ANNOTATIONS_ENABLED=1&quot;;&quot;WTF_USE_DYNAMIC_ANNOTATIONS=1&quot;"
 				MinimalRebuild="false"
 				ExceptionHandling="0"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
-				EnableFunctionLevelLinking="false"
+				EnableFunctionLevelLinking="true"
 				RuntimeTypeInfo="false"
 				UsePrecompiledHeader="0"
 				WarningLevel="3"
@@ -64,16 +66,10 @@
 				Name="VCPreLinkEventTool"
 			/>
 			<Tool
-				Name="VCLinkerTool"
-				AdditionalDependencies="version.lib msimg32.lib usp10.lib psapi.lib dbghelp.lib winmm.lib shlwapi.lib"
-				FixedBaseAddress="1"
-				TargetMachine="1"
+				Name="VCLibrarianTool"
 			/>
 			<Tool
 				Name="VCALinkTool"
-			/>
-			<Tool
-				Name="VCManifestTool"
 			/>
 			<Tool
 				Name="VCXDCMakeTool"
@@ -83,9 +79,6 @@
 			/>
 			<Tool
 				Name="VCFxCopTool"
-			/>
-			<Tool
-				Name="VCAppVerifierTool"
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
@@ -698,10 +691,6 @@
 			</File>
 			<File
 				RelativePath="..\base\string_util.h"
-				>
-			</File>
-			<File
-				RelativePath="..\base\string_util_posix.h"
 				>
 			</File>
 			<File
@@ -1425,6 +1414,42 @@
 				</File>
 				<File
 					RelativePath="..\base\profiler\tracked_time.h"
+					>
+				</File>
+			</Filter>
+			<Filter
+				Name="json"
+				>
+				<File
+					RelativePath="..\base\json\json_reader.cc"
+					>
+				</File>
+				<File
+					RelativePath="..\base\json\json_reader.h"
+					>
+				</File>
+				<File
+					RelativePath="..\base\json\json_value_serializer.cc"
+					>
+				</File>
+				<File
+					RelativePath="..\base\json\json_value_serializer.h"
+					>
+				</File>
+				<File
+					RelativePath="..\base\json\json_writer.cc"
+					>
+				</File>
+				<File
+					RelativePath="..\base\json\json_writer.h"
+					>
+				</File>
+				<File
+					RelativePath="..\base\json\string_escape.cc"
+					>
+				</File>
+				<File
+					RelativePath="..\base\json\string_escape.h"
 					>
 				</File>
 			</Filter>

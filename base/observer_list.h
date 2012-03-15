@@ -9,6 +9,7 @@
 #include <algorithm>
 #include <limits>
 #include <vector>
+#include <crtdefs.h>
 
 #include "base/basictypes.h"
 #include "base/logging.h"
@@ -75,7 +76,9 @@ class ObserverListBase
     // notified.
     NOTIFY_EXISTING_ONLY
   };
-
+#ifdef max
+#undef  max   // add by lijun
+#endif
   // An iterator class that can be used to access the list of observers.  See
   // also the FOR_EACH_OBSERVER macro defined below.
   class Iterator {
@@ -84,7 +87,7 @@ class ObserverListBase
         : list_(list.AsWeakPtr()),
           index_(0),
           max_index_(list.type_ == NOTIFY_ALL ?
-                     std::numeric_limits<size_t>::max() :
+                    std::numeric_limits<size_t>::max() :
                      list.observers_.size()) {
       ++list_->notify_depth_;
     }
@@ -98,6 +101,9 @@ class ObserverListBase
       if (!list_)
         return NULL;
       ListType& observers = list_->observers_;
+#ifdef min
+#undef  min     // add by lijun
+#endif
       // Advance if the current element is null
       size_t max_index = std::min(max_index_, observers.size());
       while (index_ < max_index && !observers[index_])
