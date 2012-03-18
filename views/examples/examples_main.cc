@@ -181,14 +181,9 @@ const views::Widget* ExamplesMain::GetWidget() const {
 }  // namespace examples
 
 int main(int argc, char** argv) {
-#if defined(OS_WIN)
+
   OleInitialize(NULL);
-#elif defined(OS_LINUX)
-  // Initializes gtk stuff.
-  g_thread_init(NULL);
-  g_type_init();
-  gtk_init(&argc, &argv);
-#endif
+
   CommandLine::Init(argc, argv);
 
   base::EnableTerminationOnHeapCorruption();
@@ -196,9 +191,12 @@ int main(int argc, char** argv) {
   // The exit manager is in charge of calling the dtors of singleton objects.
   base::AtExitManager exit_manager;
 
+#if 1
   ui::RegisterPathProvider();
-  ui::ResourceBundle::InitSharedInstance("en-US");
-  
+  HINSTANCE hInst = LoadLibrary(L"E:\\MyHome\\GoogleView\\bin\\locales\\ui_resource.dll");
+  ui::ResourceBundle::SetResourcesDataDLL(hInst);
+  ui::ResourceBundle::InitSharedInstance("ui_resources");
+#endif
   // I add the messageloop type for embedded int the native windows messageloop
   // I change some messageLoopForUI method to virtual so you cannot create a
   // MessageLoop and downcast to MessageLoopForUI. it will cause the virtual method
@@ -208,19 +206,20 @@ int main(int argc, char** argv) {
 
  // views::TestViewsDelegate delegate;
 
+#if 1
   // We do not use this header: chrome/common/chrome_switches.h
   // because that would create a bad dependency back on Chrome.
-  views::Widget::SetPureViews(
-      CommandLine::ForCurrentProcess()->HasSwitch("use-pure-views"));
-
+  //views::Widget::SetPureViews(
+  //    CommandLine::ForCurrentProcess()->HasSwitch("use-pure-views"));
+  //views::Widget::SetPureViews( true );
+#endif
   examples::ExamplesMain main;
   main.Init();
 
   views::AcceleratorHandler accelerator_handler;
+ // MessageLoopForUI::current()->RunAllPendingWithDispatcher(&accelerator_handler);
   MessageLoopForUI::current()->Run(/*&accelerator_handler*/);
 
-#if defined(OS_WIN)
   OleUninitialize();
-#endif
   return 0;
 }
